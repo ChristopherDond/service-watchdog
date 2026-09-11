@@ -1,0 +1,38 @@
+{
+  "check_interval": 30,
+  "failure_threshold": 3,
+  "incidents_file": "incidents.jsonl",
+  "telegram": {
+    "enabled": false,
+    "bot_token": "",
+    "chat_id": "",
+    "parse_mode": "HTML"
+  },
+  "services": [
+    {
+      "name": "web-app",
+      "url": "http://localhost:8080",
+      "health_path": "/health",
+      "probe": "http",
+      "timeout": 5,
+      "restart_command": "docker restart web-app",
+      "cooldown": 300
+    },
+    {
+      "name": "postgres",
+      "url": "localhost:5432",
+      "probe": "tcp",
+      "timeout": 5,
+      "restart_command": "docker restart postgres",
+      "cooldown": 300
+    },
+    {
+      "name": "minecraft",
+      "url": "localhost:25565",
+      "probe": "tcp",
+      "timeout": 5,
+      "restart_command": "docker restart minecraft",
+      "cooldown": 600
+    }
+  ]
+}

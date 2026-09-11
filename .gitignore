@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+incidents.jsonl
+.watchdog_state.json
+config.json
